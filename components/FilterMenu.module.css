@@ -1,0 +1,158 @@
+.filterMenu {
+  background-color: #f6f4f4;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+}
+
+.menuItem {
+  width: 205px;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #edebeb;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  color: #000;
+}
+
+.menuItem:hover {
+  background-color: #e2e0e3;
+  color: #028dff;
+}
+
+.menuItem svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  color: #028dff;
+}
+
+.menuItem svg.open {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  width: 200px;
+  background-color: #f3f0f0;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-top: 0.5rem;
+  color: #000;
+}
+
+
+
+.category {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  border: 2px solid #64748b;
+  margin-right: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.checkbox::after {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.checkbox.checked {
+  border-color: #1e293b;
+}
+
+.checkbox.checked::after {
+  background-color: #1e293b;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f6f4f4;
+}
+
+.mainContent {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start; /* Ürün kartlarını soldan sağa yatay olarak sıralar */
+  padding: 20px; /* Boşluk ekleme */
+  background-color: #f6f4f4;
+}
+
+.productCard {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+  width: calc(25% - 20px); /* Yatayda 4 ürün kartı göstermek için %25 genişlik (20px boşluk ile) */
+  margin-bottom: 20px; /* Alt boşluk ekleme */
+  border-radius: 1rem;
+  overflow: hidden; /* İçeriklerin taşmasını engeller */
+
+}
+.productCardContent {
+  height: 150px; /* Ürün kartlarının içeriğini aynı boyutta tutmak için sabit bir yükseklik belirleme */
+  overflow: hidden; /* İçeriklerin taşmasını engeller */
+}
+
+/* Ekran dar olduğunda, ürün kartlarını tam sığabilecek şekilde ayarla */
+@media screen and (max-width: 768px) {
+  .productCard {
+    width: calc(50% - 20px); /* Yatayda 2 ürün kartı göstermek için %50 genişlik (20px boşluk ile) */
+  }
+}
+
+.productCard:hover {
+  transform: scale(1.0005);
+  background-color: #f0efef;
+}
+
+.productCard h2 {
+  font-size: 16px; /* Başlık font boyutu */
+  margin-bottom: 10px;
+  color: #000;
+
+}
+
+.productCard p {
+  font-size: 14px; /* Paragraf font boyutu */
+  margin-bottom: 5px;
+  color: #000;
+}

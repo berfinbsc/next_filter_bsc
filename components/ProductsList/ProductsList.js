@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import { useEffect, useState } from "react";
+import styles from '../FilterMenu.module.css'
+import ProductCard from "./ProductCard";
 export default function ProductsList() {
 
 const [products, setProducts] = useState([]);
@@ -29,25 +31,12 @@ const [products, setProducts] = useState([]);
 
 
   return (
-    <div className="py-5 px-5 bg-BaseLight text-LightBlue">
-    
-    {
-        products.map((product,index) => (
-            <div className="flex flex-col" key={index}>
-                <p className="text-lg">{product.STKKOD}</p>
-                <p className="text-lg">{product.STKCINSI}</p>
-                <p className="text-lg">{product.STKOZKOD1}</p>
-                <p className="text-lg">{product.STKOZKOD3}</p>
-                <p className="text-lg">{product.STKOZKOD5}</p>
-            </div>
-        ))
-
-    }
-
-
-
-
-
+    <div className={styles.productList}>
+      {products.map((product, index) => (
+        <div key={index} className={styles.productCard}>
+          <ProductCard product={product} />
+        </div>
+      ))}
     </div>
   )
 }
