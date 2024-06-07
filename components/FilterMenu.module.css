@@ -1,6 +1,6 @@
 .filterMenu {
-  background-color: #f6f4f4;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+  box-shadow: 6px 6px 6px 4px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   padding: 1.5rem;
 }
 
@@ -9,7 +9,7 @@
   text-align: left;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  background-color: #edebeb;
+  background-color: #ffffff;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   display: flex;
   justify-content: space-between;
@@ -21,14 +21,14 @@
 
 .menuItem:hover {
   background-color: #e2e0e3;
-  color: #028dff;
+  color: #48acfe;
 }
 
 .menuItem svg {
   width: 1.25rem;
   height: 1.25rem;
   transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
-  color: #028dff;
+  color: #48acfe;
 }
 
 .menuItem svg.open {
@@ -37,8 +37,8 @@
 
 .dropdown {
   width: 200px;
-  background-color: #f3f0f0;
-  border-radius: 0.5rem;
+  background-color: #ffffff;
+  border-radius: 0.8rem;
   padding: 1rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   margin-top: 0.5rem;
@@ -110,49 +110,87 @@
 .productList {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-start; /* Ürün kartlarını soldan sağa yatay olarak sıralar */
-  padding: 20px; /* Boşluk ekleme */
-  background-color: #f6f4f4;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding: 1rem;
+  background-color: #ffffff;
 }
 
 .productCard {
+  max-width: calc(100% - 1.2rem); 
   background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  transition: transform 0.3s ease;
-  width: calc(25% - 20px); /* Yatayda 4 ürün kartı göstermek için %25 genişlik (20px boşluk ile) */
-  margin-bottom: 20px; /* Alt boşluk ekleme */
-  border-radius: 1rem;
-  overflow: hidden; /* İçeriklerin taşmasını engeller */
-
+  border: 0px solid #d1d5db;
+  border-radius: 0.2rem;
+  box-shadow: 1.1px 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.7rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  height: 300px; /* Sabit yükseklik ayarı */
+  width: 250px; /* Sabit genişlik ayarı */
 }
 .productCardContent {
   height: 150px; /* Ürün kartlarının içeriğini aynı boyutta tutmak için sabit bir yükseklik belirleme */
   overflow: hidden; /* İçeriklerin taşmasını engeller */
 }
 
-/* Ekran dar olduğunda, ürün kartlarını tam sığabilecek şekilde ayarla */
-@media screen and (max-width: 768px) {
-  .productCard {
-    width: calc(50% - 20px); /* Yatayda 2 ürün kartı göstermek için %50 genişlik (20px boşluk ile) */
-  }
+
+
+
+
+
+
+.imageWrapper {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.5rem; /* Bu değeri azaltarak resim ve ürün adı arasındaki boşluğu azaltabilirsiniz */
 }
 
-.productCard:hover {
-  transform: scale(1.0005);
-  background-color: #f0efef;
+.productImage {
+  border-radius: 0.5rem;
 }
 
-.productCard h2 {
-  font-size: 16px; /* Başlık font boyutu */
-  margin-bottom: 10px;
-  color: #000;
-
+.productInfo {
+  text-align: left;
 }
 
-.productCard p {
-  font-size: 14px; /* Paragraf font boyutu */
-  margin-bottom: 5px;
-  color: #000;
+.productName {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+.productPrice {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #48acfe;
+  margin-bottom: 0.75rem;
+}
+.outOfStock {
+  color: #ff0000;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.addToCartButton {
+  background-color: #48acfe;
+  color: #ffffff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.3s ease;
+}
+
+.addToCartButton:hover {
+  background-color: #026dbb;
+}
+

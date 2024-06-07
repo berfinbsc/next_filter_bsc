@@ -46,7 +46,7 @@ export default function ProductsList() {
   return (
     <div className={styles.productList}>
       {currentProducts.map((product, index) => (
-        <div key={index} className={styles.productCard}>
+        <div key={index} >
           <ProductCard product={product} />
         </div>
       ))}
