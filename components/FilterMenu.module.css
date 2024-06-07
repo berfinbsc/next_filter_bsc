@@ -127,13 +127,18 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 0.7rem;
+  height: 325px; /* Sabit yükseklik ayarı */
+  width: 275px; /* Sabit genişlik ayarı */
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  height: 300px; /* Sabit yükseklik ayarı */
-  width: 250px; /* Sabit genişlik ayarı */
+
 }
 .productCardContent {
   height: 150px; /* Ürün kartlarının içeriğini aynı boyutta tutmak için sabit bir yükseklik belirleme */
   overflow: hidden; /* İçeriklerin taşmasını engeller */
+}
+
+.productCard:hover {
+  transform: scale(1.02); /* Öğe %5 büyüyecek */
 }
 
 
@@ -180,17 +185,76 @@
 }
 
 .addToCartButton {
-  background-color: #48acfe;
-  color: #ffffff;
-  border: none;
-  border-radius: 2rem;
-  padding: 0.5rem 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 3px;
+  background-color: rgba(18, 157, 244, 0.75);
+  color: white;
+  font-weight: bolder;
+  padding-left: 1rem;
+  padding-right: 2.1rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.5rem;
+  border-radius: 9999px;
   cursor: pointer;
-  font-size: 0.875rem;
-  transition: background-color 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .addToCartButton:hover {
-  background-color: #026dbb;
+  background-color: #0887e1;
+
 }
+
+.quantityWrapper {
+  display: flex;
+  align-items: center;
+  margin-right: auto; /* Sol tarafa yaslanmasını sağlar */
+}
+
+.quantityButton {
+  color: #7dc5f8;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  margin: 0; /* Butonların birbirine yakın olmasını sağlar */
+}
+.quantityButton:hover {
+color:#0095ff ;
+}
+
+
+.quantityDisplay {
+  margin: 0 0.5rem; /* Butonlar arasındaki boşluğu azaltır */
+  font-size: 1rem;
+  font-weight: 300;
+  color: #000;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Sağ ve sol elementler arasında boşluk oluşturur */
+}
+
+.iconSpan {
+  position: absolute;
+  top: 50%;
+  right: -0.5rem; /* Daha sola kaydırmak için değeri artırıyoruz */
+  transform: translate(50%, -50%);
+  padding: 0.5rem;
+  border: 3.5px solid white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  transform: translateY(-50%);
+  background-color: #0887e1;
+}
+
+
 
