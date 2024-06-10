@@ -12,7 +12,7 @@ export default function ProductsList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL_VERCEL}/products`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`);
         if (!response.ok) {
           throw new Error('API hatası: ' + response.status);
         }
