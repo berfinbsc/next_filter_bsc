@@ -1,10 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import styles from '../FilterMenu.module.css';
-import ProductCard from "./ProductCard";
+import ProductCardB from "./ProductCardB";
 import filterStore from "@/utils/filterStore";
 
-export default function ProductsList() {
+const ProductsList = () => {
   const [products, setProducts] = useState([]);
   const { selectedFilters } = filterStore();
   const [currentProducts, setCurrentProducts] = useState([]);
@@ -17,8 +16,10 @@ export default function ProductsList() {
           throw new Error('API hatası: ' + response.status);
         }
         const data = await response.json();
-        setProducts(data.data);
-        setCurrentProducts(data.data);
+        const productsList = data.data;
+        const inStockProducts = productsList.filter(product => product.STKOZKOD1 === 'A');
+        setCurrentProducts(inStockProducts);
+        setProducts(inStockProducts);
       } catch (error) {
         console.error('Veri çekme hatası: ', error);
       }
@@ -28,28 +29,32 @@ export default function ProductsList() {
   }, []);
 
   useEffect(() => {
-    if (selectedFilters && products.length > 0) {
-      const filteredProducts = products.filter(product => {
-        return selectedFilters.some(filter => {
-          if (filter.name === product.STKOZKOD3) {
-            return filter.categories.includes(product.STKOZKOD5);
+    if (selectedFilters.length > 0) {
+      let filteredProducts = [];
+      selectedFilters.forEach(filter => {
+        products.forEach(product => {
+          if (filter.category === product.STKOZKOD3 && filter.filter.includes(product.STKOZKOD2)) {
+            if (!filteredProducts.some(p => p.STKKOD === product.STKKOD)) {
+              filteredProducts.push(product);
+            }
           }
-          return false;
+          else{
+            setCurrentProducts(products);
+
+          }
         });
       });
-      setCurrentProducts(filteredProducts.length > 0 ? filteredProducts : products);
+      setCurrentProducts(filteredProducts);
     } else {
       setCurrentProducts(products);
     }
   }, [selectedFilters, products]);
 
   return (
-    <div className={styles.productList}>
-      {currentProducts.map((product, index) => (
-        <div key={index} >
-          <ProductCard product={product} />
-        </div>
-      ))}
+    <div className="bg-white w-full flex justify-center">
+      <ProductCardB selectedCategory={currentProducts} />
     </div>
   );
-}
+};
+
+export default ProductsList;
