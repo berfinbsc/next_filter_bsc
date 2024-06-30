@@ -2,7 +2,6 @@ import ProductsList from '@/components/ProductsList/ProductsList';
 import React from 'react';
 import TopMenu from '@/components/FilterMenu/TopMenu';
 import SideMenu from '@/components/FilterMenu/SideMenu';
-import StoreTopBar from '@/components/top/StoreTopBar';
 
 function Products() {
   return (
